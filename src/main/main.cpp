@@ -11,7 +11,17 @@ using namespace design_pattern;
 int main(int argc, char* argv[])
 {
   std::locale::global(std::locale("japanese"));
+#if 1
 
+  std::unique_ptr<Delivery> chain;
+  chain = std::make_unique<LightLuggageDelivery>(
+    new MediumLuggageDelivery(
+      new HeavyLuggageDelivery(nullptr)));
+
+  std::unique_ptr<Luggage> pLuggage = std::make_unique<Luggage>(HEAVY_LUGGAGE);
+  chain->handle(pLuggage.get());
+
+#else
   std::unique_ptr<Luggage> pLuggage = std::make_unique<Luggage>(HEAVY_LUGGAGE);
   std::unique_ptr<LightLuggageDelivery> pLight = std::make_unique<LightLuggageDelivery>();
   std::unique_ptr<MediumLuggageDelivery> pMedium = std::make_unique<MediumLuggageDelivery>();
@@ -32,6 +42,7 @@ int main(int argc, char* argv[])
     }
     it++;
   }
+#endif
   return 0;
 }
 

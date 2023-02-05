@@ -14,11 +14,15 @@ public:
     : Delivery()
     {
     }
+  explicit HeavyLuggageDelivery(Delivery* pChain)
+    : Delivery(pChain)
+    {
+    }
   virtual ~HeavyLuggageDelivery() = default;
 
   bool checkLuggage(Luggage* luggage) override;
   void deliver(Luggage* luggage) override;
-  
+  void handle(Luggage* luggage) override;
 };
 
 } // design_pattern

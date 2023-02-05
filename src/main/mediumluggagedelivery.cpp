@@ -27,3 +27,16 @@ void MediumLuggageDelivery::deliver(Luggage* luggage)
   
   std::wcout << L"貨物重量[ " << luggage->getWeight() << L" ]中型トラックで配送します。" << std::endl;
 }
+
+void MediumLuggageDelivery::handle(Luggage* luggage)
+{
+  if (this->checkLuggage(luggage))
+  {
+    this->deliver(luggage);
+  }
+  else
+  {
+    this->getAcceptance(luggage);
+  }
+}
+

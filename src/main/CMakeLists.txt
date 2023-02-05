@@ -2,6 +2,7 @@
 set(MAIN_SRC
   main.cpp
   delivery.h
+  delivery.cpp
   luggage.h
   heavyluggagedelivery.h
   heavyluggagedelivery.cpp
