@@ -25,5 +25,5 @@ void MediumLuggageDelivery::deliver(Luggage* luggage)
     return;
   }
   
-  std::wcout << L"貨物重量[ " << luggage->getWeight() << L" 中型トラックで配送します。" << std::endl;
+  std::wcout << L"貨物重量[ " << luggage->getWeight() << L" ]中型トラックで配送します。" << std::endl;
 }
